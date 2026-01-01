@@ -2,154 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zen Games</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HOME SCREEN -->
-  <section id="home" class="screen active" 
-    style="display:block;">
-    <h1 class="logo">ZEN GAMES</h1>
-    <img src="images/file_0000000a90c720780353cf65eb406e1.png"
-     alt="Zen Games Banner"
-     class="hero-image">
-    <p class="tagline">Next-Gen & Legendary Games Collection</p>
-    <button id="exploreBtn">Explore Games</button>
-  </section>
+<!-- HOME -->
+<section id="home" class="screen active">
+  <h1 class="logo">ZEN GAMES</h1>
+  <img src="images/file_0000000a90c720780353cf65eb406e1.png" class="hero-image">
+  <p class="tagline">Next-Gen & Legendary Games Collection</p>
+  <button id="exploreBtn">Explore Games</button>
+</section>
 
-  <!-- GAMES SCREEN (NEW DISPLAY) -->
-  <section id="games" class="screen" 
-    style="display:none;">
-    <button id="backBtn">← Back</button>
+<!-- GAMES -->
+<section id="games" class="screen">
+  <button id="backBtn">← Back</button>
 
-    <h2 class="title">Top Games of 2026</h2>
-    <input 
-  type="text" 
-  id="search"
-  placeholder="Search games..."
-  class="search"
-/> 
+  <h2 class="title">Top Games of 2026</h2>
+  <input id="search" class="search" placeholder="Search games...">
+
   <div class="game-grid">
 
     <div class="game-card"
-  data-title="Red Dead Redemption 2"
-  data-rating="⭐ 4.9 / 5"
-  data-size="150 GB"
-  data-desc="An epic open-world western action game by Rockstar Games."
-  data-link="https://www.rockstargames.com/reddeadredemption2"
-  data-image="images/rdr2.jpg">
-
-  <img src="images/rdr2.jpg">
-  <p>Red Dead Redemption 2</p>
+      data-title="Red Dead Redemption 2"
+      data-rating="⭐ 4.9 / 5"
+      data-size="150 GB"
+      data-desc="Epic open-world western action game."
+      data-link="https://www.rockstargames.com/reddeadredemption2"
+      data-image="images/rdr2.jpg">
+      <img src="images/rdr2.jpg">
+      <p>Red Dead Redemption 2</p>
     </div>
 
-      <div class="game-card"
-  data-title="Red Dead Redemption"
-  data-rating="⭐ 4.7 / 5"
-  data-size="15 GB"
-  data-desc="Classic western open-world game."
-  data-link="https://www.rockstargames.com/reddeadredemption"
-  data-image="images/rdr1.jpg"
->
-  <img src="images/rdr1.jpg">
-  <p>Red Dead Redemption</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/rdr-mobile.jpg">
-        <p>RDR Mobile</p>
-      </div>
-
-      <div class="game-card"
-  data-title="Forza Horizon 5"
-  data-rating="⭐ 4.8 / 5"
-  data-size="110 GB"
-  data-desc="Open-world racing game set in Mexico."
-  data-link="https://forzamotorsport.net"
-  data-image="images/forza5.jpg"
->
-  <img src="images/forza5.jpg">
-  <p>Forza Horizon 5</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/car-master.jpg">
-        <p>Car Master Racing</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/days-gone.jpg">
-        <p>Days Gone Remastered</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/lost-soul.jpg">
-        <p>Lost Soul Aside</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/spiderman2.jpg">
-        <p>Marvel's Spider-Man 2</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/until-dawn.jpg">
-        <p>Until Dawn</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/ratchet.jpg">
-        <p>Ratchet & Clank: Rift Apart</p>
-      </div>
-
-      <div class="game-card">
-        <img src="images/gt7.jpg">
-        <p>Gran Turismo 7</p>
-      </div>
+    <div class="game-card"
+      data-title="Forza Horizon 5"
+      data-rating="⭐ 4.8 / 5"
+      data-size="110 GB"
+      data-desc="Open-world racing game set in Mexico."
+      data-link="https://forzamotorsport.net"
+      data-image="images/forza5.jpg">
+      <img src="images/forza5.jpg">
+      <p>Forza Horizon 5</p>
     </div>
-   <!-- GAME DETAIL SECTION (HIDDEN BY DEFAULT) -->
-<section id="game-detail" style="display:none; padding:20px;">
 
-  <button id="detailBackBtn"> style="
-    background:none;
-    border:none;
-    color:cyan;
-    font-size:18px;
-    cursor:pointer;
-    margin-bottom:15px;
-  ">
-    ← Back to Games
-  </button>
-
-  <img id="detail-image" src="" style="
-    width:100%;
-    border-radius:15px;
-    margin-bottom:15px;
-  ">
-
-  <h2 id="detail-title"></h2>
-
-  <p id="detail-info" style="opacity:0.8;"></p>
-
-  <p id="detail-desc"></p>
-
-  <a id="detail-link" href="#" target="_blank" style="
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 20px;
-    border-radius:25px;
-    background:cyan;
-    color:black;
-    text-decoration:none;
-    font-weight:bold;
-  ">
-    Visit Official Website
-  </a>
-
+  </div>
 </section>
 
-  <script src="js/script.js"></script>
+<!-- GAME DETAIL -->
+<section id="game-detail" class="screen">
+  <button id="detailBackBtn">← Back to Games</button>
+
+  <img id="detail-image">
+  <h2 id="detail-title"></h2>
+  <p id="detail-info"></p>
+  <p id="detail-desc"></p>
+  <a id="detail-link" target="_blank">Visit Official Website</a>
+</section>
+
+<script src="js/script.js"></script>
 </body>
 </html>
