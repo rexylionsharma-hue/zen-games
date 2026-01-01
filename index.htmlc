@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Games of 2026</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <section class="hero">
+    <h1>BEST GAMES OF 2026</h1>
+    <p>Future gaming starts here 🚀</p>
+    <button>Explore Games</button>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

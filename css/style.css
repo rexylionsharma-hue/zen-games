@@ -1,0 +1,118 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top, #001f2d, #000);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* SCREENS */
+.screen{
+  min-height:100vh;
+  width:100%;
+  display:none;
+  padding:40px 20px;
+}
+
+.screen.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* HOME */
+.logo{
+  font-size:3.5rem;
+  letter-spacing:2px;
+  text-shadow:0 0 25px cyan, 0 0 50px #00f;
+}
+
+.tagline{
+  opacity:.85;
+  margin:15px 0 25px;
+}
+
+#exploreBtn{
+  padding:14px 36px;
+  border:none;
+  border-radius:40px;
+  background:cyan;
+  color:#000;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 0 30px cyan;
+  transition:.25s;
+}
+
+#exploreBtn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 50px cyan;
+}
+
+/* GAMES SCREEN */
+#games{
+  align-items:flex-start;
+}
+
+#backBtn{
+  background:none;
+  border:1px solid cyan;
+  color:cyan;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+.title{
+  width:100%;
+  text-align:center;
+  margin-bottom:30px;
+  text-shadow:0 0 15px cyan;
+}
+
+/* GRID */
+.game-grid{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:22px;
+}
+
+.game-card{
+  background:rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:14px;
+  box-shadow:0 0 25px rgba(0,255,255,.25);
+  transition:.3s;
+  text-align:center;
+}
+
+.game-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 0 45px cyan;
+}
+
+.game-card img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:10px;
+}
+
+.game-card p{
+  font-weight:600;
+}
+
+/* RESPONSIVE */
+@media (max-width:480px){
+  .logo{font-size:2.6rem;}
+}
