@@ -60,8 +60,10 @@ gameCards.forEach(card => {
     detailTitle.innerText = card.dataset.title;
     detailInfo.innerText = `${card.dataset.rating} | ${card.dataset.size}`;
     detailDesc.innerText = card.dataset.desc;
-    detailLink.href = card.dataset.link;
-  });
+    detailLink.onclick = (e) => {
+  e.preventDefault();
+  window.open(card.dataset.link, "_blank");
+};
 });
 
 // 🔙 Back from Detail → Games
