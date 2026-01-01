@@ -1,78 +1,71 @@
-const exploreBtn = document.getElementById("exploreBtn");
-const backBtn = document.getElementById("backBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-const homeScreen = document.getElementById("home");
-const gamesScreen = document.getElementById("games");
+  const exploreBtn = document.getElementById("exploreBtn");
+  const backBtn = document.getElementById("backBtn");
 
-// Explore Games → Games Screen
-exploreBtn.addEventListener("click", () => {
-  homeScreen.style.display = "none";
-  homeScreen.classList.remove("active");
+  const homeScreen = document.getElementById("home");
+  const gamesScreen = document.getElementById("games");
 
-  gamesScreen.style.display = "block";
-  gamesScreen.classList.add("active");
-});
-// Back → Home Screen
-backBtn.addEventListener("click", () => {
-  gamesScreen.style.display = "none";
-  gamesScreen.classList.remove("active");
+  // 🏠 → 🎮 Explore
+  exploreBtn.addEventListener("click", () => {
+    homeScreen.style.display = "none";
+    gamesScreen.style.display = "block";
+  });
 
-  homeScreen.style.display = "block";
-  homeScreen.classList.add("active");
-});
-// 🔍 Search Games (FINAL & CLEAN)
-const searchInput = document.getElementById("search");
-const gameGrid = document.querySelector(".game-grid");
-const gameCards = document.querySelectorAll(".game-card");
-// 🎮 Game Detail Elements
-const gameDetail = document.getElementById("game-detail");
-const detailImage = document.getElementById("detail-image");
-const detailTitle = document.getElementById("detail-title");
-const detailInfo = document.getElementById("detail-info");
-const detailDesc = document.getElementById("detail-desc");
-const detailLink = document.getElementById("detail-link");
-const detailBackBtn = document.getElementById("detailBackBtn");
+  // 🎮 → 🏠 Back
+  backBtn.addEventListener("click", () => {
+    gamesScreen.style.display = "none";
+    homeScreen.style.display = "block";
+  });
 
-if (searchInput) {
-  searchInput.addEventListener("input", () => {
-    const value = searchInput.value.toLowerCase().trim();
+  // 🔍 Search
+  const searchInput = document.getElementById("search");
 
-    gameCards.forEach(card => {
-      const text = card.innerText.toLowerCase();
+  // 🎮 Game Detail Elements
+  const gameDetail = document.getElementById("game-detail");
+  const detailImage = document.getElementById("detail-image");
+  const detailTitle = document.getElementById("detail-title");
+  const detailInfo = document.getElementById("detail-info");
+  const detailDesc = document.getElementById("detail-desc");
+  const detailLink = document.getElementById("detail-link");
+  const detailBackBtn = document.getElementById("detailBackBtn");
 
-      if (text.includes(value)) {
-        card.style.display = "block";
-        gameGrid.prepend(card); // ⭐ matched game upar
-      } else {
-        card.style.display = "none";
-      }
+  const gameCards = document.querySelectorAll(".game-card");
+
+  // Search logic
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      const value = searchInput.value.toLowerCase().trim();
+
+      gameCards.forEach(card => {
+        card.style.display = card.innerText
+          .toLowerCase()
+          .includes(value)
+          ? "block"
+          : "none";
+      });
+    });
+  }
+
+  // 🎮 Card → Detail
+  gameCards.forEach(card => {
+    card.addEventListener("click", () => {
+      gamesScreen.style.display = "none";
+      gameDetail.style.display = "block";
+
+      detailImage.src = card.dataset.image || "";
+      detailTitle.innerText = card.dataset.title || "";
+      detailInfo.innerText =
+        `${card.dataset.rating || ""} | ${card.dataset.size || ""}`;
+      detailDesc.innerText = card.dataset.desc || "";
+      detailLink.href = card.dataset.link || "#";
     });
   });
-}
-// 🎮 Game Card → Detail Screen
-gameCards.forEach(card => {
-  card.addEventListener("click", () => {
 
-    // Hide games screen
-    gamesScreen.classList.remove("active");
-    gamesScreen.style.display = "none";
+  // 🔙 Detail → Games
+  detailBackBtn.addEventListener("click", () => {
+    gameDetail.style.display = "none";
+    gamesScreen.style.display = "block";
+  });
 
-    // Show detail screen
-    gameDetail.style.display = "block";
-
-    // Fill details from data-attributes
-    detailImage.src = card.dataset.image;
-    detailTitle.innerText = card.dataset.title;
-    detailInfo.innerText = `${card.dataset.rating} | ${card.dataset.size}`;
-    detailDesc.innerText = card.dataset.desc;
-    detailLink.onclick = (e) => {
-  e.preventDefault();
-  window.open(card.dataset.link, "_blank");
-};
-});
-
-// 🔙 Back from Detail → Games
-detailBackBtn.addEventListener("click", () => {
-  gameDetail.style.display = "none";
-  gamesScreen.style.display = "block";
 });
