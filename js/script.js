@@ -15,8 +15,9 @@ backBtn.addEventListener("click", () => {
   gamesScreen.classList.remove("active");
   homeScreen.classList.add("active");
 });
-// 🔍 Search Games (SAFE)
+// 🔍 Search Games (FINAL & CLEAN)
 const searchInput = document.getElementById("search");
+const gameGrid = document.querySelector(".game-grid");
 const gameCards = document.querySelectorAll(".game-card");
 
 if (searchInput) {
@@ -25,7 +26,13 @@ if (searchInput) {
 
     gameCards.forEach(card => {
       const text = card.innerText.toLowerCase();
-      card.style.display = text.includes(value) ? "" : "none";
+
+      if (text.includes(value)) {
+        card.style.display = "block";
+        gameGrid.prepend(card); // ⭐ matched game upar
+      } else {
+        card.style.display = "none";
+      }
     });
   });
 }
