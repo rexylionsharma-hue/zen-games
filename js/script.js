@@ -6,13 +6,18 @@ const gamesScreen = document.getElementById("games");
 
 // Explore Games → Games Screen
 exploreBtn.addEventListener("click", () => {
+  homeScreen.style.display = "none";
   homeScreen.classList.remove("active");
+
+  gamesScreen.style.display = "block";
   gamesScreen.classList.add("active");
 });
-
 // Back → Home Screen
 backBtn.addEventListener("click", () => {
+  gamesScreen.style.display = "none";
   gamesScreen.classList.remove("active");
+
+  homeScreen.style.display = "block";
   homeScreen.classList.add("active");
 });
 // 🔍 Search Games (FINAL & CLEAN)
