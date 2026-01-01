@@ -44,3 +44,28 @@ if (searchInput) {
     });
   });
 }
+// 🎮 Game Card → Detail Screen
+gameCards.forEach(card => {
+  card.addEventListener("click", () => {
+
+    // Hide games screen
+    gamesScreen.classList.remove("active");
+    gamesScreen.style.display = "none";
+
+    // Show detail screen
+    gameDetail.style.display = "block";
+
+    // Fill details from data-attributes
+    detailImage.src = card.dataset.image;
+    detailTitle.innerText = card.dataset.title;
+    detailInfo.innerText = `${card.dataset.rating} | ${card.dataset.size}`;
+    detailDesc.innerText = card.dataset.desc;
+    detailLink.href = card.dataset.link;
+  });
+});
+
+// 🔙 Back from Detail → Games
+detailBackBtn.addEventListener("click", () => {
+  gameDetail.style.display = "none";
+  gamesScreen.style.display = "block";
+});
