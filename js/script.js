@@ -15,15 +15,17 @@ backBtn.addEventListener("click", () => {
   gamesScreen.classList.remove("active");
   homeScreen.classList.add("active");
 });
-// 🔍 Search Games
+// 🔍 Search Games (SAFE)
 const searchInput = document.getElementById("search");
 const gameCards = document.querySelectorAll(".game-card");
 
-searchInput.addEventListener("keyup", () => {
-  const value = searchInput.value.toLowerCase();
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    const value = searchInput.value.toLowerCase().trim();
 
-  gameCards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(value) ? "block" : "none";
+    gameCards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(value) ? "block" : "none";
+    });
   });
-});
+}
