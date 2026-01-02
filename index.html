@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZEN GAMES</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HOME SCREEN -->
+  <section id="home" class="screen active">
+    <h1 class="logo">ZEN GAMES</h1>
+
+    <img
+      src="images/file_0000000a90c720780353cf65eb406e1.png"
+      alt="Zen Games Banner"
+      class="hero-image"
+    />
+
+    <p class="tagline">Next-Gen & Legendary Games Collection</p>
+
+    <button id="exploreBtn">Explore Games</button>
+  </section>
+
+  <!-- GAMES SCREEN -->
+  <section id="games" class="screen">
+    <button id="backBtn">← Back</button>
+
+    <h2 class="title">Top Games of 2026</h2>
+
+    <input
+      type="text"
+      id="search"
+      class="search"
+      placeholder="Search games..."
+    />
+
+    <div class="game-grid">
+
+      <div class="game-card"
+        data-title="Red Dead Redemption 2"
+        data-rating="⭐ 4.9 / 5"
+        data-size="150 GB"
+        data-desc="An epic open-world western action game by Rockstar Games."
+        data-link="https://www.rockstargames.com/reddeadredemption2"
+        data-image="images/rdr2.jpg"
+      >
+        <img src="images/rdr2.jpg">
+        <p>Red Dead Redemption 2</p>
+      </div>
+
+      <div class="game-card"
+        data-title="Forza Horizon 5"
+        data-rating="⭐ 4.8 / 5"
+        data-size="110 GB"
+        data-desc="Open-world racing game set in Mexico."
+        data-link="https://forzamotorsport.net"
+        data-image="images/forza5.jpg"
+      >
+        <img src="images/forza5.jpg">
+        <p>Forza Horizon 5</p>
+      </div>
+
+      <!-- MINI GAMES ENTRY -->
+      <div class="game-card">
+        <a href="mini-games/tap-master/index.html">
+          <img src="images/gamepad.png">
+          <p>Mini Games 🎮</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
