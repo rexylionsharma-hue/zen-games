@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Top Master</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Mini-games ka style use hoga -->
-  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>🎯 Top Master</h1>
-  <p>Click speed challenge</p>
+<iframe
+  src="https://html5games.com/Game/Top-Master/index.html"
+  allowfullscreen>
+</iframe>
 
-  <button id="clickBtn" style="padding:20px;font-size:20px;">
-    CLICK ME
-  </button>
-
-  <p>Score: <span id="score">0</span></p>
-
-  <br>
-  <a href="../index.html">⬅ Back to Mini Games</a>
-
-  <!-- Mini-games ka JS -->
-  <script src="../game.js"></script>
 </body>
 </html>
