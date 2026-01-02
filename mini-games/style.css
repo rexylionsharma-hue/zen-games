@@ -1,17 +1,28 @@
 body {
-  background: #0b1f26;
-  color: #fff;
+  margin: 0;
+  padding: 20px;
   font-family: Arial, sans-serif;
+  background: #0f2027;
+  color: white;
   text-align: center;
-  padding: 40px;
 }
 
-button {
-  padding: 15px 25px;
-  font-size: 18px;
+.games {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: #111;
+  padding: 20px;
+  width: 220px;
   border-radius: 12px;
-  border: none;
-  background: cyan;
-  color: black;
-  cursor: pointer;
+  text-decoration: none;
+  color: cyan;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
