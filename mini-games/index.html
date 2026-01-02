@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Zen Mini Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #071a20;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #0e2a33;
+      border-radius: 15px;
+      padding: 20px;
+      text-decoration: none;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>🎮 Zen Mini Games</h1>
-  <p>Select a game & play instantly</p>
+<h1>🎮 Zen Mini Games</h1>
+<p>Select a game & play instantly</p>
 
-  <div class="games">
-    <!-- Top Master Game -->
-    <a href="top-master/index.html" class="card">
-      <h2>Top Master</h2>
-      <p>Click speed challenge</p>
-    </a>
-  </div>
+<div class="games">
 
-  <br>
-  <a href="../index.html">⬅ Back to Main Site</a>
+  <a href="top-master/index.html" class="card">
+    <h2>Top Master</h2>
+    <p>Click speed challenge</p>
+  </a>
+
+</div>
+
+<br>
+<a href="../index.html" style="color:#00eaff;">⬅ Back to Main Site</a>
 
 </body>
 </html>
