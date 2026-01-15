@@ -45,6 +45,7 @@ navLinks.forEach(link => {
     home.classList.remove("active");
     games.classList.remove("active");
     news.classList.remove("active");
+    community.classList.remove("active");
 
     if (text === "home") {
       home.classList.add("active");
@@ -52,8 +53,11 @@ navLinks.forEach(link => {
       games.classList.add("active");
     } else if (text === "news") {
       news.classList.add("active");
-    } else {
-      alert(text.toUpperCase() + " section coming soon!");
+    } else if (text === "community") {
+  const community = document.getElementById("community");
+  community.classList.add("active");
+} else {
+  alert(text.toUpperCase() + " section coming soon!");
     }
   });
 });
