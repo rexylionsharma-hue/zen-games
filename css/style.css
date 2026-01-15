@@ -219,3 +219,54 @@ button:hover {
 body {
   padding-top: 60px;
 }
+/* Smooth screen transition */
+.screen {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.screen.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button glow animation */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 20px #00f0ff, 0 0 40px rgba(0,240,255,0.6);
+  transform: scale(1.05);
+}
+
+/* Pulse effect for main CTA */
+#exploreBtn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,240,255,0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(0,240,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,240,255,0); }
+}
+
+/* Game cards animation */
+.game-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: cardIn 0.6s ease forwards;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+.game-card:nth-child(3) { animation-delay: 0.3s; }
+.game-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
