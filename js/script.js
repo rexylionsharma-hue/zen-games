@@ -160,3 +160,42 @@ function postComment() {
   document.getElementById("commentName").value = "";
   document.getElementById("commentText").value = "";
 }
+#community {
+  padding: 24px;
+}
+
+.community-box {
+  margin-bottom: 28px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(0, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 18px rgba(0,255,255,0.15);
+}
+
+.community-box h3 {
+  margin-bottom: 12px;
+}
+
+.community-box input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+}
+
+.community-box button {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.poll {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.wall {
+  margin-top: 12px;
+}
