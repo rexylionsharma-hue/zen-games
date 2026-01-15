@@ -73,3 +73,38 @@ if (exploreBtn) {
 if (backBtn) {
   backBtn.addEventListener("click", () => showScreen("home"));
 }
+async function loadNews() {
+  const apiKey = "544bd0fb601bdf1807b5eeb0d043df0f";
+  const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&apikey=${apiKey}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const newsContainer = document.querySelector("#news");
+    if (!newsContainer) return;
+
+    // Header reset
+    newsContainer.innerHTML = `
+      <button id="backFromNews">← Back</button>
+      <h2 class="title">Latest Gaming News</h2>
+    `;
+
+    data.articles.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "news-item";
+      div.innerHTML = `
+        <h3>📰 ${item.title}</h3>
+        <p>${item.description || ""}</p>
+        <span class="news-date">${new Date(item.publishedAt).toDateString()}</span>
+      `;
+      newsContainer.appendChild(div);
+    });
+
+  } catch (e) {
+    console.log("News load error:", e);
+  }
+}
+
+// Page load par real news fetch
+document.addEventListener("DOMContentLoaded", loadNews);
