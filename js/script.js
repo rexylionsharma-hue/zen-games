@@ -29,3 +29,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// Navbar links
+const navLinks = document.querySelectorAll(".main-nav a");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const text = link.innerText.toLowerCase();
+
+    const home = document.getElementById("home");
+    const games = document.getElementById("games");
+
+    // sab screens hide
+    home.classList.remove("active");
+    games.classList.remove("active");
+
+    if (text === "home") {
+      home.classList.add("active");
+    } else if (text === "games") {
+      games.classList.add("active");
+    } else {
+      alert(text.toUpperCase() + " section coming soon!");
+    }
+  });
+});
