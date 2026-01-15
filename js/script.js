@@ -76,7 +76,7 @@ if (backBtn) {
 async function loadNews() {
   const apiKey = "544bd0fb601bdf1807b5eeb0d043df0f";
   const page = Math.floor(Math.random() * 5) + 1;
-const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&apikey=${apiKey}`;
+const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&apikey=${apiKey}&_=${Date.now()}`;
 
   try {
     const res = await fetch(url);
