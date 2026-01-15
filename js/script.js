@@ -19,14 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Game card buttons (Rockstar / others)
-  const gameButtons = document.querySelectorAll(".game-card button");
-
-  gameButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const url = btn.getAttribute("data-url");
-      if (url) {
-        window.open(url, "_blank");
+  // Game cards click (Rockstar, Forza, etc.)
+  document.querySelectorAll(".game-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const link = card.dataset.link;
+      if (link) {
+        window.open(link, "_blank");
       }
     });
   });
