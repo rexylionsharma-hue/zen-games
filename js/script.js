@@ -109,3 +109,42 @@ const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&
 
 // Page load par real news fetch
 document.addEventListener("DOMContentLoaded", loadNews);
+function addPlayer() {
+  const name = document.getElementById("playerName").value;
+  const game = document.getElementById("favGame").value;
+  if (!name || !game) return;
+
+  const div = document.createElement("div");
+  div.className = "wall-item";
+  div.innerText = `${name} loves ${game}`;
+  document.getElementById("playerList").appendChild(div);
+
+  document.getElementById("playerName").value = "";
+  document.getElementById("favGame").value = "";
+}
+
+let votes = {};
+
+function vote(game) {
+  votes[game] = (votes[game] || 0) + 1;
+
+  let html = "<h4>Results:</h4>";
+  for (let g in votes) {
+    html += `${g}: ${votes[g]} votes<br>`;
+  }
+  document.getElementById("pollResult").innerHTML = html;
+}
+
+function postComment() {
+  const name = document.getElementById("commentName").value;
+  const text = document.getElementById("commentText").value;
+  if (!name || !text) return;
+
+  const div = document.createElement("div");
+  div.className = "wall-item";
+  div.innerHTML = `<b>${name}:</b> ${text}`;
+  document.getElementById("commentList").appendChild(div);
+
+  document.getElementById("commentName").value = "";
+  document.getElementById("commentText").value = "";
+}
