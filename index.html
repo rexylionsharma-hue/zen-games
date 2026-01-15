@@ -116,7 +116,40 @@
     <span class="news-date">15 Jan 2026</span>
   </div>
 </section>
+<section id="community" class="screen">
+  <button id="backFromCommunity">← Back</button>
+  <h2 class="title">Zen Community</h2>
 
+  <!-- Player Wall -->
+  <div class="community-box">
+    <h3>🧑‍🤝‍🧑 Join Zen Gamers</h3>
+    <input id="playerName" placeholder="Your Name">
+    <input id="favGame" placeholder="Favourite Game">
+    <button onclick="addPlayer()">Join</button>
+    <div id="playerList" class="wall"></div>
+  </div>
+
+  <!-- Daily Poll -->
+  <div class="community-box">
+    <h3>📊 Aaj ka Best Game?</h3>
+    <div class="poll">
+      <button onclick="vote('GTA VI')">GTA VI</button>
+      <button onclick="vote('Minecraft')">Minecraft</button>
+      <button onclick="vote('Forza')">Forza</button>
+      <button onclick="vote('BGMI')">BGMI</button>
+    </div>
+    <div id="pollResult"></div>
+  </div>
+
+  <!-- Comment Wall -->
+  <div class="community-box">
+    <h3>💬 Zen Wall</h3>
+    <input id="commentName" placeholder="Your Name">
+    <input id="commentText" placeholder="Your Message">
+    <button onclick="postComment()">Post</button>
+    <div id="commentList" class="wall"></div>
+  </div>
+</section>
 <!-- JS -->
 <script src="js/script.js"></script>
 
