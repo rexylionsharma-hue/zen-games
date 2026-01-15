@@ -39,15 +39,19 @@ navLinks.forEach(link => {
 
     const home = document.getElementById("home");
     const games = document.getElementById("games");
+    const news = document.getElementById("news");
 
     // sab screens hide
     home.classList.remove("active");
     games.classList.remove("active");
+    news.classList.remove("active");
 
     if (text === "home") {
       home.classList.add("active");
     } else if (text === "games") {
       games.classList.add("active");
+    } else if (text === "news") {
+      news.classList.add("active");
     } else {
       alert(text.toUpperCase() + " section coming soon!");
     }
