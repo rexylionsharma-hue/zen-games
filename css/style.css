@@ -315,3 +315,38 @@ button:hover {
   transform: scale(1.05) rotateX(5deg);
   box-shadow: 0 20px 40px rgba(0, 247, 255, 0.4);
 }
+.news-title {
+  text-align: center;
+  color: #00f7ff;
+  margin-bottom: 20px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 20px;
+}
+
+.news-item {
+  background: rgba(0, 20, 40, 0.6);
+  border: 1px solid rgba(0, 247, 255, 0.2);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+}
+
+.news-item h3 {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.news-item p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.news-date {
+  font-size: 12px;
+  color: #00f7ff;
+}
