@@ -53,3 +53,19 @@ navLinks.forEach(link => {
     }
   });
 });
+// Smooth cinematic switch
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+  });
+  setTimeout(() => {
+    document.getElementById(id).classList.add('active');
+  }, 100);
+}
+
+if (exploreBtn) {
+  exploreBtn.addEventListener("click", () => showScreen("games"));
+}
+if (backBtn) {
+  backBtn.addEventListener("click", () => showScreen("home"));
+}
