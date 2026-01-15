@@ -109,41 +109,49 @@ const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&
 
 // Page load par real news fetch
 document.addEventListener("DOMContentLoaded", loadNews);
+// ---- COMMUNITY FEATURES ----
+
+// Player Join
 function addPlayer() {
-  const name = document.getElementById("playerName").value;
-  const game = document.getElementById("favGame").value;
+  const name = document.getElementById("playerName").value.trim();
+  const game = document.getElementById("favGame").value.trim();
+  const list = document.getElementById("playerList");
+
   if (!name || !game) return;
 
   const div = document.createElement("div");
   div.className = "wall-item";
-  div.innerText = `${name} loves ${game}`;
-  document.getElementById("playerList").appendChild(div);
+  div.innerText = `${name} joined – Loves ${game}`;
+  list.prepend(div);
 
   document.getElementById("playerName").value = "";
   document.getElementById("favGame").value = "";
 }
 
+// Poll
 let votes = {};
-
 function vote(game) {
   votes[game] = (votes[game] || 0) + 1;
 
   let html = "<h4>Results:</h4>";
   for (let g in votes) {
-    html += `${g}: ${votes[g]} votes<br>`;
+    html += `<p>${g}: ${votes[g]} votes</p>`;
   }
   document.getElementById("pollResult").innerHTML = html;
 }
 
+// Comments
 function postComment() {
-  const name = document.getElementById("commentName").value;
-  const text = document.getElementById("commentText").value;
+  const name = document.getElementById("commentName").value.trim();
+  const text = document.getElementById("commentText").value.trim();
+  const list = document.getElementById("commentList");
+
   if (!name || !text) return;
 
   const div = document.createElement("div");
   div.className = "wall-item";
-  div.innerHTML = `<b>${name}:</b> ${text}`;
-  document.getElementById("commentList").appendChild(div);
+  div.innerHTML = `<strong>${name}:</strong> ${text}`;
+  list.prepend(div);
 
   document.getElementById("commentName").value = "";
   document.getElementById("commentText").value = "";
