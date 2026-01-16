@@ -51,6 +51,21 @@
     <button id="exploreBtn">Explore Games</button>
     <button onclick="removeAds()" style="margin-top:15px;">Remove Ads – ₹10</button>
   </section>
+  <!-- AI IMAGE GENERATOR -->
+<section id="ai" class="screen">
+  <button id="backFromAI">← Back</button>
+  <h2 class="title">🎨 Zen AI Image Generator</h2>
+
+  <div class="ai-box">
+    <input id="aiPrompt" placeholder="Describe your image... (e.g. Anime boy with blue eyes)">
+    <button onclick="generateImage()">Generate</button>
+
+    <div id="aiStatus" class="ai-status"></div>
+    <div class="ai-result">
+      <img id="aiImage" />
+    </div>
+  </div>
+</section>
 
   <!-- GAMES SCREEN -->
   <section id="games" class="screen">
