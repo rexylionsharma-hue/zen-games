@@ -184,3 +184,19 @@ function doLogin() {
 
 // Page load par check
 document.addEventListener("DOMContentLoaded", checkLogin);
+function loginUser() {
+  const user = document.getElementById("loginUser").value.trim();
+  const pass = document.getElementById("loginPass").value.trim();
+
+  if (!user || !pass) {
+    alert("Name aur Password dono likho!");
+    return;
+  }
+
+  // Simple demo login (local storage)
+  localStorage.setItem("zenUser", user);
+
+  // Login screen hide, home show
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("home").classList.add("active");
+}
