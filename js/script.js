@@ -160,3 +160,27 @@ function postComment() {
   document.getElementById("commentName").value = "";
   document.getElementById("commentText").value = "";
 }
+// ---- LOGIN SYSTEM ----
+const login = document.getElementById("login");
+const home = document.getElementById("home");
+
+function checkLogin() {
+  const user = localStorage.getItem("zenUser");
+  if (user) {
+    login.classList.remove("active");
+    home.classList.add("active");
+  }
+}
+
+function doLogin() {
+  const u = document.getElementById("loginUser").value.trim();
+  const p = document.getElementById("loginPass").value.trim();
+  if (!u || !p) return alert("Fill both fields");
+
+  localStorage.setItem("zenUser", u);
+  login.classList.remove("active");
+  home.classList.add("active");
+}
+
+// Page load par check
+document.addEventListener("DOMContentLoaded", checkLogin);
