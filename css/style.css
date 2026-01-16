@@ -416,3 +416,40 @@ button:hover {
   width: 100%;
   margin-top: 10px;
 }
+.ai-box {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(0,255,255,0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+}
+
+.ai-box input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: none;
+  margin-bottom: 12px;
+  background: rgba(0,255,255,0.12);
+  color: #eaffff;
+}
+
+.ai-box button {
+  width: 100%;
+}
+
+.ai-status {
+  margin-top: 10px;
+  color: #00ffff;
+}
+
+.ai-result {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.ai-result img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.4);
+}
