@@ -200,3 +200,34 @@ function loginUser() {
   document.getElementById("loginScreen").style.display = "none";
   document.getElementById("home").classList.add("active");
 }
+async function generateImage() {
+  const prompt = document.getElementById("aiPrompt").value.trim();
+  const status = document.getElementById("aiStatus");
+  const img = document.getElementById("aiImage");
+
+  if (!prompt) return;
+
+  status.innerText = "Generating image...";
+  img.src = "";
+
+  try {
+    const res = await fetch("https://api.openai.com/v1/images/generations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_API_KEY_HERE"
+      },
+      body: JSON.stringify({
+        model: "gpt-image-1",
+        prompt: prompt,
+        size: "512x512"
+      })
+    });
+
+    const data = await res.json();
+    img.src = data.data[0].url;
+    status.innerText = "Done!";
+  } catch (e) {
+    status.innerText = "Error generating image.";
+  }
+}
