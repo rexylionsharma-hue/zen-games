@@ -1,97 +1,87 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const exploreBtn = document.getElementById("exploreBtn");
   const backBtn = document.getElementById("backBtn");
 
-  const homeScreen = document.getElementById("home");
-  const gamesScreen = document.getElementById("games");
+  const home = document.getElementById("home");
+  const games = document.getElementById("games");
+  const news = document.getElementById("news");
+  const community = document.getElementById("community");
+  const login = document.getElementById("login");
 
-  if (exploreBtn) {
-    exploreBtn.addEventListener("click", () => {
-      homeScreen.classList.remove("active");
-      gamesScreen.classList.add("active");
-    });
+  function showScreen(id) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    const el = document.getElementById(id);
+    if (el) el.classList.add("active");
   }
 
-  if (backBtn) {
-    backBtn.addEventListener("click", () => {
-      gamesScreen.classList.remove("active");
-      homeScreen.classList.add("active");
-    });
-  }
+  if (exploreBtn) exploreBtn.onclick = () => showScreen("games");
+  if (backBtn) backBtn.onclick = () => showScreen("home");
 
-  // Game cards click (Rockstar, Forza, etc.)
+  // Game cards
   document.querySelectorAll(".game-card").forEach(card => {
     card.addEventListener("click", () => {
       const link = card.dataset.link;
-      if (link) {
-        window.open(link, "_blank");
-      }
+      if (link) window.open(link, "_blank");
     });
   });
-});
-// Navbar links
-const navLinks = document.querySelectorAll(".main-nav a");
 
-navLinks.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const text = link.innerText.toLowerCase();
+  // Navbar
+  document.querySelectorAll(".main-nav a").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const text = link.innerText.toLowerCase();
 
-    const home = document.getElementById("home");
-    const games = document.getElementById("games");
-    const news = document.getElementById("news");
+      if (text === "home") showScreen("home");
+      else if (text === "games") showScreen("games");
+      else if (text === "news") showScreen("news");
+      else if (text === "community") showScreen("community");
+      else alert(text.toUpperCase() + " coming soon");
+    });
+  });
 
-    // sab screens hide
-    home.classList.remove("active");
-    games.classList.remove("active");
-    news.classList.remove("active");
-    community.classList.remove("active");
-
-    if (text === "home") {
-      home.classList.add("active");
-    } else if (text === "games") {
-      games.classList.add("active");
-    } else if (text === "news") {
-      news.classList.add("active");
-    } else if (text === "community") {
-  const community = document.getElementById("community");
-  community.classList.add("active");
-} else {
-  alert(text.toUpperCase() + " section coming soon!");
+  // Login check
+  function checkLogin() {
+    const user = localStorage.getItem("zenUser");
+    if (user && login) {
+      login.classList.remove("active");
+      showScreen("home");
     }
-  });
-});
-// Smooth cinematic switch
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.remove('active');
-  });
-  setTimeout(() => {
-    document.getElementById(id).classList.add('active');
-  }, 100);
-}
+  }
+  checkLogin();
 
-if (exploreBtn) {
-  exploreBtn.addEventListener("click", () => showScreen("games"));
-}
-if (backBtn) {
-  backBtn.addEventListener("click", () => showScreen("home"));
-}
+  window.doLogin = function () {
+    const u = document.getElementById("loginUser").value.trim();
+    const p = document.getElementById("loginPass").value.trim();
+    if (!u || !p) return alert("Fill both fields");
+
+    localStorage.setItem("zenUser", u);
+    login.classList.remove("active");
+    showScreen("home");
+  };
+
+  loadNews();
+
+});
+
+
+// ===== NEWS =====
+
 async function loadNews() {
   const apiKey = "544bd0fb601bdf1807b5eeb0d043df0f";
   const page = Math.floor(Math.random() * 5) + 1;
-const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&apikey=${apiKey}&_=${Date.now()}`;
+
+  const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&apikey=${apiKey}`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
 
-    const newsContainer = document.querySelector("#news");
+    const newsContainer = document.getElementById("news");
     if (!newsContainer) return;
 
-    // Header reset
     newsContainer.innerHTML = `
-      <button id="backFromNews">← Back</button>
+      <button id="backFromNews" onclick="showHome()">← Back</button>
       <h2 class="title">Latest Gaming News</h2>
     `;
 
@@ -99,7 +89,7 @@ const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&
       const div = document.createElement("div");
       div.className = "news-item";
       div.innerHTML = `
-        <h3>📰 ${item.title}</h3>
+        <h3>${item.title}</h3>
         <p>${item.description || ""}</p>
         <span class="news-date">${new Date(item.publishedAt).toDateString()}</span>
       `;
@@ -107,15 +97,18 @@ const url = `https://gnews.io/api/v4/search?q=gaming&lang=en&max=5&page=${page}&
     });
 
   } catch (e) {
-    console.log("News load error:", e);
+    console.log("News error", e);
   }
 }
 
-// Page load par real news fetch
-document.addEventListener("DOMContentLoaded", loadNews);
-// ---- COMMUNITY FEATURES ----
+function showHome() {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById("home").classList.add("active");
+}
 
-// Player Join
+
+// ===== COMMUNITY =====
+
 function addPlayer() {
   const name = document.getElementById("playerName").value.trim();
   const game = document.getElementById("favGame").value.trim();
@@ -132,19 +125,15 @@ function addPlayer() {
   document.getElementById("favGame").value = "";
 }
 
-// Poll
 let votes = {};
 function vote(game) {
   votes[game] = (votes[game] || 0) + 1;
 
   let html = "<h4>Results:</h4>";
-  for (let g in votes) {
-    html += `<p>${g}: ${votes[g]} votes</p>`;
-  }
+  for (let g in votes) html += `<p>${g}: ${votes[g]}</p>`;
   document.getElementById("pollResult").innerHTML = html;
 }
 
-// Comments
 function postComment() {
   const name = document.getElementById("commentName").value.trim();
   const text = document.getElementById("commentText").value.trim();
@@ -159,61 +148,4 @@ function postComment() {
 
   document.getElementById("commentName").value = "";
   document.getElementById("commentText").value = "";
-}
-// ---- LOGIN SYSTEM ----
-const login = document.getElementById("login");
-const home = document.getElementById("home");
-
-function checkLogin() {
-  const user = localStorage.getItem("zenUser");
-  if (user) {
-    login.classList.remove("active");
-    home.classList.add("active");
-  }
-}
-
-function doLogin() {
-  const u = document.getElementById("loginUser").value.trim();
-  const p = document.getElementById("loginPass").value.trim();
-  if (!u || !p) return alert("Fill both fields");
-
-  localStorage.setItem("zenUser", u);
-  login.classList.remove("active");
-  home.classList.add("active");
-}
-
-
-  // Simple demo login (local storage)
-  localStorage.setItem("zenUser", user);
-
-async function generateImage() {
-  const prompt = document.getElementById("aiPrompt").value.trim();
-  const status = document.getElementById("aiStatus");
-  const img = document.getElementById("aiImage");
-
-  if (!prompt) return;
-
-  status.innerText = "Generating image...";
-  img.src = "";
-
-  try {
-    const res = await fetch("https://api.openai.com/v1/images/generations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer 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
-      },
-      body: JSON.stringify({
-        model: "gpt-image-1",
-        prompt: prompt,
-        size: "512x512"
-      })
-    });
-
-    const data = await res.json();
-    img.src = data.data[0].url;
-    status.innerText = "Done!";
-  } catch (e) {
-    status.innerText = "Error generating image.";
-  }
 }
