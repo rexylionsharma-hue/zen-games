@@ -4,188 +4,119 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZEN GAMES</title>
+
   <meta name="author" content="Zen Games">
   <meta name="owner" content="Zen Games">
   <meta name="publisher" content="Zen Games">
   <meta name="copyright" content="Zen Games 2026">
-<!-- Open Graph Preview -->
-<meta property="og:title" content="Zen Games" />
-<meta property="og:description" content="Next-Gen & Legendary Games Collection" />
-<meta property="og:image" content="https://rexylionsharma-hue.github.io/zen-games/images/file_0000000a90c720780353cf65eb406e1.png" />
-<meta property="og:url" content="https://rexylionsharma-hue.github.io/zen-games/" />
-<meta property="og:type" content="website" />
-  <!-- CSS -->
+
+  <!-- Open Graph Preview -->
+  <meta property="og:title" content="Zen Games" />
+  <meta property="og:description" content="Next-Gen & Legendary Games Collection" />
+  <meta property="og:image" content="https://rexylionsharma-hue.github.io/zen-games/images/file_0000000a90c720780353cf65eb406e1.png" />
+  <meta property="og:url" content="https://rexylionsharma-hue.github.io/zen-games/" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  
-</section>
+
   <nav class="main-nav">
-  <a href="#">Home</a>
-  <a href="#">Games</a>
-  <a href="#">News</a>
-  <a href="#">Community</a>
+    <a href="#">Home</a>
+    <a href="#">Games</a>
+    <a href="#">News</a>
+    <a href="#">Community</a>
   </nav>
 
-  <!-- HOME SCREEN -->
-<section id="home" class="screen">
-  <h1 class="logo">ZEN GAMES</h1>
-  ...
-</section>
+  <!-- HOME -->
+  <section id="home" class="screen active">
+    <h1 class="logo">ZEN GAMES</h1>
 
-    <img
-      src="images/file_0000000a90c720780353cf65eb406e1.png"
-      alt="Zen Games Banner"
-      class="hero-image"
-    />
+    <section class="hero">
+      <img src="images/banner-main.jpg" alt="Zen Games" class="hero-img">
+      <div class="hero-text">
+        <h1>Welcome to Zen Games</h1>
+        <p>Explore the best gaming world</p>
+      </div>
+    </section>
+
+    <img src="images/file_0000000a90c720780353cf65eb406e1.png"
+         alt="Zen Games Banner"
+         class="hero-image" />
 
     <p class="tagline">Next-Gen & Legendary Games Collection</p>
 
     <button id="exploreBtn">Explore Games</button>
     <button onclick="removeAds()" style="margin-top:15px;">Remove Ads – ₹10</button>
   </section>
-  <!-- AI IMAGE GENERATOR -->
-<section id="ai" class="screen">
-  <button id="backFromAI">← Back</button>
-  <h2 class="title">🎨 Zen AI Image Generator</h2>
 
-  <div class="ai-box">
-    <input id="aiPrompt" placeholder="Describe your image... (e.g. Anime boy with blue eyes)">
-    <button onclick="generateImage()">Generate</button>
+  <!-- AI -->
+  <section id="ai" class="screen">
+    <button id="backFromAI">← Back</button>
+    <h2 class="title">🎨 Zen AI Image Generator</h2>
 
-    <div id="aiStatus" class="ai-status"></div>
-    <div class="ai-result">
-      <img id="aiImage" />
+    <div class="ai-box">
+      <input id="aiPrompt" placeholder="Describe your image...">
+      <button onclick="generateImage()">Generate</button>
+      <div id="aiStatus" class="ai-status"></div>
+      <div class="ai-result">
+        <img id="aiImage" />
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- GAMES SCREEN -->
+  <!-- GAMES -->
   <section id="games" class="screen">
     <button id="backBtn">← Back</button>
-
     <h2 class="title">Top Games of 2026</h2>
 
-    <input
-      type="text"
-      id="search"
-      class="search"
-      placeholder="Search games..."
-    />
+    <input type="text" id="search" class="search" placeholder="Search games..." />
 
     <div class="game-grid">
-
       <div class="game-card"
-        data-title="Red Dead Redemption 2"
-        data-rating="⭐ 4.9 / 5"
-        data-size="150 GB"
-        data-desc="An epic open-world western action game by Rockstar Games."
-        data-link="https://www.rockstargames.com/reddeadredemption2"
-        data-image="images/rdr2.jpg"
-      >
+        data-link="https://www.rockstargames.com/reddeadredemption2">
         <img src="images/rdr2.jpg">
         <p>Red Dead Redemption 2</p>
       </div>
 
       <div class="game-card"
-        data-title="Forza Horizon 5"
-        data-rating="⭐ 4.8 / 5"
-        data-size="110 GB"
-        data-desc="Open-world racing game set in Mexico."
-        data-link="https://forzamotorsport.net"
-        data-image="images/forza5.jpg"
-      >
+        data-link="https://forzamotorsport.net">
         <img src="images/forza5.jpg">
         <p>Forza Horizon 5</p>
       </div>
 
-      <!-- MINI GAMES ENTRY -->
       <div class="game-card">
-        <a href="./mini-games/index.html">Mini Games 🎮</a>
+        <a href="./mini-games/index.html">
           <img src="images/gamepad.png">
           <p>Mini Games 🎮</p>
         </a>
       </div>
-
     </div>
   </section>
 
- <!-- Games section end -->
+  <!-- NEWS -->
+  <section id="news" class="screen">
+    <button id="backFromNews">← Back</button>
+    <h2 class="title">Latest Gaming News</h2>
+  </section>
 
-<!-- NEWS SCREEN -->
-<section id="news" class="screen">
-  <button id="backFromNews">← Back</button>
-  <h2 class="title">Latest Gaming News</h2>
+  <!-- COMMUNITY -->
+  <section id="community" class="screen">
+    <button id="backFromCommunity">← Back</button>
+    <h2 class="title">Zen Community</h2>
+  </section>
 
-  <div class="news-item">
-    <h3>🔥 Saudi PIF Invests $12B in Gaming</h3>
-    <p>Saudi Arabia’s Public Investment Fund invested billions in top gaming companies like Nintendo & Square Enix.</p>
-    <span class="news-date">15 Jan 2026</span>
-  </div>
+  <!-- JS -->
+  <script src="js/script.js"></script>
 
-  <div class="news-item">
-    <h3>🎉 Hytale Hits Early Access</h3>
-    <p>The much-anticipated sandbox RPG Hytale is now available in early access.</p>
-    <span class="news-date">15 Jan 2026</span>
-  </div>
+  <!-- Ads -->
+  <script src="https://pl28427089.effectivegatecpm.com/99/4a/b5/994ab549171531dda710cc01f53786b4.js"></script>
 
-  <div class="news-item">
-    <h3>🎮 Big Games Coming in 2026</h3>
-    <p>GTA VI, Marvel’s Wolverine, 007 First Light and more are lined up for 2026.</p>
-    <span class="news-date">15 Jan 2026</span>
-  </div>
-</section>
-<section id="community" class="screen">
-  <button id="backFromCommunity">← Back</button>
-  <h2 class="title">Zen Community</h2>
-
-  <!-- Player Wall -->
-  <div class="community-box">
-    <h3>🧑‍🤝‍🧑 Join Zen Gamers</h3>
-    <input id="playerName" placeholder="Your Name">
-    <input id="favGame" placeholder="Favourite Game">
-    <button onclick="addPlayer()">Join</button>
-    <div id="playerList" class="wall"></div>
-  </div>
-
-  <!-- Daily Poll -->
-  <div class="community-box">
-    <h3>📊 Aaj ka Best Game?</h3>
-    <div class="poll">
-      <button onclick="vote('GTA VI')">GTA VI</button>
-      <button onclick="vote('Minecraft')">Minecraft</button>
-      <button onclick="vote('Forza')">Forza</button>
-      <button onclick="vote('BGMI')">BGMI</button>
-    </div>
-    <div id="pollResult"></div>
-  </div>
-
-  <!-- Comment Wall -->
-  <div class="community-box">
-    <h3>💬 Zen Wall</h3>
-    <input id="commentName" placeholder="Your Name">
-    <input id="commentText" placeholder="Your Message">
-    <button onclick="postComment()">Post</button>
-    <div id="commentList" class="wall"></div>
-  </div>
-</section>
-<!-- JS -->
-<script src="js/script.js"></script>
-
-<!-- Ad script -->
-<script src="https://pl28427089.effectivegatecpm.com/99/4a/b5/994ab549171531dda710cc01f53786b4.js"></script>
   <script>
-function removeAds() {
-  alert("Ads hatane ke liye ₹10 pay karo.\nUPI: 7819870730@fam\nPayment ke baad ad-free access milega.");
-}
+    function removeAds() {
+      alert("Ads hatane ke liye ₹10 pay karo.\nUPI: 7819870730@fam");
+    }
   </script>
-  <section class="hero">
-  <img src="images/banner-main.jpg" alt="Zen Games" class="hero-img">
-  <div class="hero-text">
-    <h1>Welcome to Zen Games</h1>
-    <p>Explore the best gaming world</p>
-  </div>
-  </section>
-    
+
 </body>
 </html>
