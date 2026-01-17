@@ -182,24 +182,10 @@ function doLogin() {
   home.classList.add("active");
 }
 
-// Page load par check
-document.addEventListener("DOMContentLoaded", checkLogin);
-function loginUser() {
-  const user = document.getElementById("loginUser").value.trim();
-  const pass = document.getElementById("loginPass").value.trim();
-
-  if (!user || !pass) {
-    alert("Name aur Password dono likho!");
-    return;
-  }
 
   // Simple demo login (local storage)
   localStorage.setItem("zenUser", user);
 
-  // Login screen hide, home show
-  document.getElementById("loginScreen").style.display = "none";
-  document.getElementById("home").classList.add("active");
-}
 async function generateImage() {
   const prompt = document.getElementById("aiPrompt").value.trim();
   const status = document.getElementById("aiStatus");
@@ -215,7 +201,7 @@ async function generateImage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR_API_KEY_HERE"
+        "Authorization": "Bearer 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
       },
       body: JSON.stringify({
         model: "gpt-image-1",
