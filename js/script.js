@@ -149,3 +149,6 @@ function postComment() {
   document.getElementById("commentName").value = "";
   document.getElementById("commentText").value = "";
 }
+function openZenAI() {
+  window.open("https://zengamesai-zen-ai.hf.space/", "_blank");
+}
